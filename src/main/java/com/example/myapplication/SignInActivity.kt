@@ -58,7 +58,7 @@ class SignInActivity : AppCompatActivity() {
                     startActivity(intent)
 
                 } else {
-                    Toast.makeText(this@SignInActivity, "User does not exist", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@SignInActivity, "Incorrect credentials", Toast.LENGTH_SHORT).show()
 
                 }
             }

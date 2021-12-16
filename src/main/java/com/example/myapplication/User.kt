@@ -13,7 +13,6 @@ class User {
 
     var student: Boolean? = null
     var facultyMember: Boolean? = null
-    var title: String? = null //Only using if they are faculty
 
 
     //Set to -1, so it cannot be possible to reference another image
@@ -38,15 +37,6 @@ class User {
         this.email = email
         this.uID = uID
         this.mImageResourceID = imageResourceID
-    }
-
-    //Use this constructor if there is an image available
-    constructor(name: String?, email: String?, uID: String?, imageResourceID: Int, title: String?) {
-        this.name = name
-        this.email = email
-        this.uID = uID
-        this.mImageResourceID = imageResourceID
-        this.title = title
     }
 
 }

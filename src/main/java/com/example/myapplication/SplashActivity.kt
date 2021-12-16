@@ -19,6 +19,5 @@ class SplashActivity : AppCompatActivity() {
             finish()
         }, SPLASH_TIME_OUT.toLong())//Pass in how long it goes for
 
-
     }
 }

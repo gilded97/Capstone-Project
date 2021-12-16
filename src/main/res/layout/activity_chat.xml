@@ -29,6 +29,7 @@
             android:layout_marginLeft="10dp"
             android:paddingLeft="10dp"
             android:hint="Type a message"
+            android:textColor="@color/purple_500"
             android:background="@drawable/white_border_shape_button_rounded"
             android:layout_weight="85"/>
 
@@ -38,7 +39,6 @@
             android:layout_height="50dp"
             android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
             android:layout_weight="20" />
-
 
     </LinearLayout>
 

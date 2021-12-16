@@ -97,12 +97,8 @@ class MainActivity : AppCompatActivity() {
                 if (searchText!!.isNotEmpty()) {
                     println(userList.toString())
                     userList.forEach {
-                        //If user name OR title
+                        //If user name
                         if (it.name?.lowercase(Locale.getDefault())!!.contains(searchText)) {
-
-                            //As of now, nothing contains a title
-                            // || it.title?.lowercase(Locale.getDefault())!!.contains(searchText))
-
                             tempUserList.add(it)
                         }
                     }

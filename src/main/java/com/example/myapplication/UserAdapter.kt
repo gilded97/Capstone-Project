@@ -5,8 +5,6 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Filter
-import android.widget.Filterable
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -14,10 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 //User Adapter must take in context & List
 class UserAdapter(val context: Context, var userList: ArrayList<User>):
     RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
-
-
-    //List to manipualate
-    //val filteredListFull: ArrayList<User> = null!!
 
 
     //Extend UserViewHolder we created
