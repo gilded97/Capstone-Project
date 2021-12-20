@@ -1,40 +1,56 @@
 package com.example.myapplication
 
-import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import com.example.myapplication.databinding.ActivityForTestingTestBinding
+import android.os.Bundle
+import android.util.Patterns
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ProgressBar
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+
+private lateinit var emailEditText: EditText
+private lateinit var resetPasswordButton: Button
+private lateinit var progressBar: ProgressBar
+private lateinit var auth: FirebaseAuth
 
 class ForTestingTestActivity : AppCompatActivity() {
-
-    private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityForTestingTestBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_for_testing_test)
 
-        binding = ActivityForTestingTestBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        emailEditText = findViewById(R.id.email)
+        resetPasswordButton = findViewById(R.id.resetPassword)
+        progressBar = findViewById(R.id.progressBar)
+        auth = FirebaseAuth.getInstance()
 
-        setSupportActionBar(binding.toolbar)
-
-        val navController = findNavController(R.id.nav_host_fragment_content_for_testing_test)
-        appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)
-
-        binding.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        resetPasswordButton.setOnClickListener{
+            resetPassword()
         }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_for_testing_test)
-        return navController.navigateUp(appBarConfiguration)
-                || super.onSupportNavigateUp()
+    private fun resetPassword() {
+        var email = emailEditText.text.toString().trim()
+        if(email.isEmpty()){
+            emailEditText.setError("Email is required!")
+            emailEditText.requestFocus()
+            return
+        }
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            emailEditText.setError("Please provide valid email!")
+            emailEditText.requestFocus()
+            return
+        }
+        progressBar.setVisibility(View.VISIBLE)
+        auth.sendPasswordResetEmail(email).addOnCompleteListener(this) { task ->
+            if (task.isSuccessful) {
+                Toast.makeText(this, "Check your email to change your password!", Toast.LENGTH_LONG).show()
+                progressBar.setVisibility(View.GONE)
+            }else{
+                Toast.makeText(this, "Some error occured, please try again.", Toast.LENGTH_LONG).show()
+                progressBar.setVisibility(View.GONE)
+            }
+        }
     }
 }

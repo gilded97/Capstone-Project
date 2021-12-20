@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,6 +13,14 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import java.util.*
 import kotlin.collections.ArrayList
+import com.google.firebase.database.FirebaseDatabase
+
+import com.google.firebase.database.DatabaseReference
+
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -56,8 +65,8 @@ class MainActivity : AppCompatActivity() {
                     //Create USER OBJECT and add it to list since there are multiple users - type is User Object
                     val currentUser = postSnapshot.getValue(User::class.java)
 
-                    //Make sure it doesn't show who's logged in
-                    if(mAuth.currentUser?.uid != currentUser?.uID) {
+                    //Make sure it doesn't show who's logged in or only faculty
+                    if((mAuth.currentUser?.uid != currentUser?.uID) && (currentUser!!.isStudent == true)) {
                         userList.add(currentUser!!)
                     }
 
@@ -87,7 +96,8 @@ class MainActivity : AppCompatActivity() {
         val searchView = item?.actionView as SearchView
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
-                TODO("Not yet implemented")
+                // TODO: Not yet implemented
+                return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
@@ -97,8 +107,8 @@ class MainActivity : AppCompatActivity() {
                 if (searchText!!.isNotEmpty()) {
                     println(userList.toString())
                     userList.forEach {
-                        //If user name
-                        if (it.name?.lowercase(Locale.getDefault())!!.contains(searchText)) {
+                        //If user name and student
+                        if ((it.name?.lowercase(Locale.getDefault())!!.contains(searchText)) && (it.isStudent == true)) {
                             tempUserList.add(it)
                         }
                     }
@@ -141,18 +151,16 @@ class MainActivity : AppCompatActivity() {
 
         } else if (item.itemId == R.id.groupChat){
             val intent1 = Intent(this@MainActivity, GroupChatActivity::class.java)
-            startActivity(intent1)
+                startActivity(intent1)
 
             return true
-
         }
 
-        /* else if (item.itemId == R.id.facultyList){
-            val intent1 = Intent(this@MainActivity, FacultyActivity::class.java)
-            startActivity(intent1)
+        else if (item.itemId == R.id.facultyList){
+            val intent2 = Intent(this@MainActivity, FacultyActivity::class.java)
+                startActivity(intent2)
             return true
         }
-        */
 
         return true
     }

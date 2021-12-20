@@ -11,8 +11,8 @@ class User {
     var department: String? = null
     var year: Int? = null
 
-    var student: Boolean? = null
-    var facultyMember: Boolean? = null
+    var isStudent: Boolean? = null
+    var isFaculty: Boolean? = null
 
 
     //Set to -1, so it cannot be possible to reference another image
@@ -29,6 +29,18 @@ class User {
         this.name = name
         this.email = email
         this.uID = uID
+    }
+
+    constructor(name: String?, email: String?, uID: String?, rollNumber: Int?, studentIdNumber: Int?, department: String?, year: Int?, isStudent: Boolean?, isFaculty: Boolean?) {
+        this.name = name
+        this.email = email
+        this.uID = uID
+        this.rollNumber = rollNumber
+        this.studentIdNumber = studentIdNumber
+        this.department = department
+        this.year = year
+        this.isStudent = isStudent
+        this.isFaculty = isFaculty
     }
 
     //Use this constructor if there is an image available

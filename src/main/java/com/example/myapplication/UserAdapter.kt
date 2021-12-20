@@ -28,6 +28,8 @@ class UserAdapter(val context: Context, var userList: ArrayList<User>):
 
         //textName from UserViewHolder we created
         holder.textName.text = currentUser.name
+        // Department can be null currently, adjust view accordingly
+        holder.deptName.text = currentUser.department ?: "No Department"
 
         //setOnClickListeners *using CONTEXT (which is defined in adapter class constructor)
         holder.itemView.setOnClickListener {
@@ -50,6 +52,7 @@ class UserAdapter(val context: Context, var userList: ArrayList<User>):
 
         //Initialize views of User Layout for ViewHolder
         val textName = itemView.findViewById<TextView>(R.id.txt_name) //From user_layout.xml
+        val deptName = itemView.findViewById<TextView>(R.id.txt_title)
     }
 
 

@@ -4,62 +4,52 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ic_background"
     tools:context=".SignUpActivity">
 
-    <FrameLayout
-        android:id="@+id/frame_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="70dp"
-        android:layout_centerHorizontal="true">
+    <EditText
+        android:id="@+id/editText_email"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/editText_dept"
+        android:layout_marginTop="10dp"
+        android:hint="Email"
+        android:paddingLeft="13dp"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:background="@drawable/white_border_shape_button_rounded"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/app_logo"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/ic_nav_user"
-            android:layout_gravity="center_horizontal" >
 
-        </de.hdodenhof.circleimageview.CircleImageView>
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/edit_button"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:src="@drawable/ic_baseline_camera_alt_24"
-            android:layout_gravity="right" >
-
-        </de.hdodenhof.circleimageview.CircleImageView>
-
-    </FrameLayout>
+    <EditText
+        android:id="@+id/editText_year"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/editText_student_id_no"
+        android:layout_marginTop="10dp"
+        android:hint="Year"
+        android:paddingLeft="13dp"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:background="@drawable/white_border_shape_button_rounded"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:inputType="number"/>
 
 
     <EditText
         android:id="@+id/editText_name"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@id/frame_layout"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/white_border_shape_button_rounded"
         android:hint="Name"
         android:paddingLeft="13dp"
-        android:textColor="@color/purple_500"
-        android:background="@drawable/white_border_shape_button_rounded"
-        android:layout_marginLeft="28dp"
-        android:layout_marginRight="28dp" />
-
-    <EditText
-        android:id="@+id/editText_email"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@id/editText_name"
-        android:layout_marginTop="10dp"
-        android:hint="Email"
-        android:paddingLeft="13dp"
-        android:textColor="@color/purple_500"
-        android:background="@drawable/white_border_shape_button_rounded"
-        android:layout_marginLeft="28dp"
-        android:layout_marginRight="28dp" />
-
+        android:textColorHint="@color/black"
+        android:textColor="@color/black" />
     <EditText
         android:id="@+id/editText_password"
         android:layout_width="match_parent"
@@ -67,25 +57,101 @@
         android:layout_below="@id/editText_email"
         android:layout_marginTop="10dp"
         android:hint="Password"
-        android:paddingLeft="13dp"
-        android:textColor="@color/purple_500"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
         android:background="@drawable/white_border_shape_button_rounded"
-        android:layout_marginLeft="28dp"
-        android:layout_marginRight="28dp" />
+        android:paddingLeft="13dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:ems="10"
+        android:inputType="textPassword"/>
+    <EditText
+        android:id="@+id/editText_repeat_password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/editText_password"
+        android:layout_marginTop="10dp"
+        android:hint="Repeat Password"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:background="@drawable/white_border_shape_button_rounded"
+        android:paddingLeft="13dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:ems="10"
+        android:inputType="textPassword"/>
+    <EditText
+        android:id="@+id/editText_student_id_no"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/editText_rollnumber"
+        android:layout_marginTop="10dp"
+        android:hint="Student ID#"
+        android:paddingLeft="13dp"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:background="@drawable/white_border_shape_button_rounded"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
 
+    <EditText
+        android:id="@+id/editText_dept"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/editText_name"
+        android:layout_marginTop="10dp"
+        android:hint="Department"
+        android:paddingLeft="13dp"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:background="@drawable/white_border_shape_button_rounded"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
+    <EditText
+        android:id="@+id/editText_rollnumber"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/editText_repeat_password"
+        android:layout_marginTop="10dp"
+        android:hint="Roll #"
+        android:paddingLeft="13dp"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        android:background="@drawable/white_border_shape_button_rounded"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
 
     <Button
         android:id="@+id/btn_signup"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editText_password"
-        android:text="Sign Up"
+        android:layout_below="@id/editText_year"
+        android:text="Sign up"
         android:background="@drawable/shape_button_rounded"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="10dp"/>
 
-
-
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_signup"
+        android:layout_centerHorizontal="true">
+        <CheckBox android:id="@+id/checkbox_student"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Student"
+            android:textColor="@color/black"
+            android:buttonTint="@color/black"
+            android:onClick="onCheckboxClicked"/>
+        <CheckBox android:id="@+id/checkbox_faculty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Faculty"
+            android:textColor="@color/black"
+            android:buttonTint="@color/black"
+            android:onClick="onCheckboxClicked"/>
+    </LinearLayout>
 </RelativeLayout>

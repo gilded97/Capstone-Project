@@ -14,6 +14,7 @@ class SignInActivity : AppCompatActivity() {
     private lateinit var editPassword : EditText
     private lateinit var btnSignIn : Button
     private lateinit var btnSignUp : Button
+    private lateinit var btnForgotPassword: Button
 
     private lateinit var mAuth: FirebaseAuth
 
@@ -30,6 +31,7 @@ class SignInActivity : AppCompatActivity() {
         editPassword = findViewById(R.id.editText_password)
         btnSignIn = findViewById(R.id.btn_sign_in_intro)
         btnSignUp = findViewById(R.id.btn_sign_up_intro)
+        btnForgotPassword = findViewById(R.id.btn_forgotPassword)
 
         btnSignUp.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
@@ -43,6 +45,10 @@ class SignInActivity : AppCompatActivity() {
             login(email, password)
         }
 
+        btnForgotPassword.setOnClickListener{
+            val intent = Intent(this, ForTestingTestActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun login(email: String, password: String) {

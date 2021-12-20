@@ -39,7 +39,7 @@ class MessageAdapter(val context: Context, val messageList: ArrayList<Message>):
         if (holder.javaClass == SentViewHolder::class.java) {
             //do stuff for sentViewHolder
 
-            //Create object as instance of class?
+            //Create object as instance of class
             val viewHolder = holder as SentViewHolder
 
             holder.sentMessage.text = currentMessage.message
